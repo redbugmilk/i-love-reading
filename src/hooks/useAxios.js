@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import axios from "axios";
 import books from "./api.response.mock";
 
@@ -7,20 +7,20 @@ function useAxios() {
   const [error, setError] = useState();
   const [data, setData] = useState();
 
-  const request = async ({ url, method = "GET" }) => {
+  const request = useCallback(async ({ url, method = "GET" }, loadData) => {
     setError();
     setIsLoading(true);
     try {
       //const { data } = await axios({ url, method });
-      const data = books;
-      setData(data);
+      console.log("called twice");
+      loadData(books);
     } catch (error) {
       console.log(`useAxios.request ${error}`);
       setError(error.message);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
   return {
     isLoading,
