@@ -10,30 +10,15 @@ import {
 import PropTypes from "prop-types";
 
 const style = {
-  wrap: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    boxShadow: 24,
-    p: 5,
-  },
-  headerCard: {
-    justifyContent: "center",
-    alignItems: "center",
-    direction: "column",
-  },
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  boxShadow: 24,
+  p: 5,
 };
 
-function BookDetail({
-  id,
-  author,
-  pages,
-  title,
-  publication,
-  open,
-  handleClose,
-}) {
+function BookDetail({ author, pages, title, publication, open, handleClose }) {
   return (
     <Modal
       open={open}
@@ -41,14 +26,14 @@ function BookDetail({
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Paper sx={style.wrap}>
+      <Paper sx={style}>
         <CardContent>
           <Stack
             direction="column"
             spacing={2}
             divider={<Divider orientation="horizontal" flexItem />}
           >
-            <Box sx={style.headerCard}>
+            <Box>
               <Typography variant="h5" color="primary" gutterBottom>
                 {title}
               </Typography>
@@ -57,7 +42,7 @@ function BookDetail({
               </Typography>
             </Box>
             <Box>
-              <Typography sx={{ fontSize: 14 }} color="info" gutterBottom>
+              <Typography variant="h7" color="info" gutterBottom>
                 Additional Information:
               </Typography>
               <Typography variant="body2" color="info" gutterBottom>
@@ -78,7 +63,6 @@ function BookDetail({
 }
 
 BookDetail.propTypes = {
-  id: PropTypes.number,
   author: PropTypes.array,
   pages: PropTypes.number,
   title: PropTypes.string,

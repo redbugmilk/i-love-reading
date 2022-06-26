@@ -17,7 +17,7 @@ function BooksList({ books, handleBookSelection }) {
         <BookItem
           key={index}
           id={item.id}
-          author={item.book_author}
+          author={item.book_author[0]}
           title={item.book_title}
           selectedIndex={selectedIndex}
           handlerSelect={handleItemSelection}

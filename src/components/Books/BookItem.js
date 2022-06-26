@@ -9,11 +9,11 @@ import {
 } from "@mui/material";
 
 function BookItem({ id, author, title, selectedIndex, handlerSelect }) {
-  const authorNameFirstLetters = (authorName) => {
-    return authorName.reduce((reducedName, name) => {
-      return reducedName + name[0];
-    }, "");
-  };
+  const authorNameFirstLetters = (authorName) =>
+    authorName
+      .split(" ")
+      .reduce((reducedName, name) => `${reducedName}${name[0]}`, "");
+
   return (
     <ListItem alignItems="flex-start">
       <ListItemButton
@@ -42,7 +42,7 @@ function BookItem({ id, author, title, selectedIndex, handlerSelect }) {
 
 BookItem.propTypes = {
   id: PropTypes.number.isRequired,
-  author: PropTypes.array.isRequired,
+  author: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   selectedIndex: PropTypes.number,
   handlerSelect: PropTypes.func.isRequired,

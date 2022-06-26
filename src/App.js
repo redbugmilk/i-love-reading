@@ -45,12 +45,7 @@ class App extends Component {
                       variant="h5"
                       noWrap
                       sx={{
-                        mr: 2,
-                        fontFamily: "monospace",
-                        fontWeight: 700,
-                        letterSpacing: ".3rem",
-                        color: "inherit",
-                        textDecoration: "none",
+                        mr: 5,
                       }}
                     >
                       I Love Reading
