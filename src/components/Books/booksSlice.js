@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
   values: [],
-  count: null,
+  count: 0,
 };
 
 const booksSlice = createSlice({
