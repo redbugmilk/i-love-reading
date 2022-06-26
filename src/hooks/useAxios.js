@@ -5,15 +5,13 @@ import books from "./api.response.mock";
 function useAxios() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
-  const [data, setData] = useState();
 
   const request = useCallback(async ({ url, method = "GET" }, loadData) => {
     setError();
     setIsLoading(true);
     try {
-      //const { data } = await axios({ url, method });
-      console.log("called twice");
-      loadData(books);
+      const { data } = await axios({ url, method });
+      loadData(data);
     } catch (error) {
       console.log(`useAxios.request ${error}`);
       setError(error.message);
@@ -25,7 +23,6 @@ function useAxios() {
   return {
     isLoading,
     error,
-    data,
     request,
   };
 }

@@ -56,6 +56,7 @@ function Books() {
   const handleClose = () => {
     setOpen(false);
   };
+  console.log(books);
   return (
     <React.Fragment>
       <BookDetail open={open} {...selectedItem} handleClose={handleClose} />
@@ -66,7 +67,7 @@ function Books() {
         spacing={2}
         divider={<Divider orientation="horizontal" flexItem />}
       >
-        {!isLoading && books.count && (
+        {!isLoading && books?.count && (
           <Box component="div">
             <TablePagination
               component="div"
@@ -79,7 +80,7 @@ function Books() {
             />
           </Box>
         )}
-        {!isLoading && books.values.length ? (
+        {!isLoading && books?.values && books.values.length ? (
           <BooksList books={books.values} handleBookSelection={handleSelect} />
         ) : (
           <EmptyBookList />

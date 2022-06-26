@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Books from "./components/Books/Books.js";
 import CustomAppBar from "./components/commons/CustomAppBar.js";
 import theme from "./themes/theme";
+import store from "./store";
+import { Provider } from "react-redux";
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Provider store={store}>
         <ThemeProvider theme={theme(this.state.isDark)}>
           <CssBaseline />
           <CustomAppBar
@@ -30,7 +32,7 @@ class App extends Component {
             <Books />
           </Container>
         </ThemeProvider>
-      </React.Fragment>
+      </Provider>
     );
   }
 }
